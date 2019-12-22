@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CB18CA9267CC3AFB3AB6EB1 /* Pods_Cool_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F60BE1553AF6009F991489C /* Pods_Cool_Chat.framework */; };
 		5FA6D30323AFEE09008BF6DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA6D30223AFEE09008BF6DC /* AppDelegate.swift */; };
 		5FA6D30523AFEE09008BF6DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA6D30423AFEE09008BF6DC /* SceneDelegate.swift */; };
 		5FA6D30723AFEE09008BF6DC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA6D30623AFEE09008BF6DC /* WelcomeViewController.swift */; };
@@ -30,6 +31,9 @@
 		5FA6D31923AFEEA3008BF6DC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5FA6D31B23AFEEFA008BF6DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5FA6D31D23AFEF1E008BF6DC /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		8F60BE1553AF6009F991489C /* Pods_Cool_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cool_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA6291B21D48E786F6DF4E81 /* Pods-Cool Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cool Chat.release.xcconfig"; path = "Target Support Files/Pods-Cool Chat/Pods-Cool Chat.release.xcconfig"; sourceTree = "<group>"; };
+		F630ACBE0639A7C4CD940547 /* Pods-Cool Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cool Chat.debug.xcconfig"; path = "Target Support Files/Pods-Cool Chat/Pods-Cool Chat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +41,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CB18CA9267CC3AFB3AB6EB1 /* Pods_Cool_Chat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31B92ECBB8A05A6D2AD753B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F630ACBE0639A7C4CD940547 /* Pods-Cool Chat.debug.xcconfig */,
+				AA6291B21D48E786F6DF4E81 /* Pods-Cool Chat.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5FA6D2F623AFEE09008BF6DC = {
 			isa = PBXGroup;
 			children = (
 				5FA6D30123AFEE09008BF6DC /* Cool Chat */,
 				5FA6D30023AFEE09008BF6DC /* Products */,
+				31B92ECBB8A05A6D2AD753B4 /* Pods */,
+				E5B1641EB0636C749B077DA7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +117,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		E5B1641EB0636C749B077DA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F60BE1553AF6009F991489C /* Pods_Cool_Chat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,9 +132,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FA6D31323AFEE0C008BF6DC /* Build configuration list for PBXNativeTarget "Cool Chat" */;
 			buildPhases = (
+				E872F6D62699A924D475AA9F /* [CP] Check Pods Manifest.lock */,
 				5FA6D2FB23AFEE09008BF6DC /* Sources */,
 				5FA6D2FC23AFEE09008BF6DC /* Frameworks */,
 				5FA6D2FD23AFEE09008BF6DC /* Resources */,
+				E2E0EF715DD215EAE341CA24 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,6 +192,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E2E0EF715DD215EAE341CA24 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cool Chat/Pods-Cool Chat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cool Chat/Pods-Cool Chat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cool Chat/Pods-Cool Chat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E872F6D62699A924D475AA9F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cool Chat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5FA6D2FB23AFEE09008BF6DC /* Sources */ = {
@@ -318,6 +387,7 @@
 		};
 		5FA6D31423AFEE0C008BF6DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F630ACBE0639A7C4CD940547 /* Pods-Cool Chat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -336,6 +406,7 @@
 		};
 		5FA6D31523AFEE0C008BF6DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA6291B21D48E786F6DF4E81 /* Pods-Cool Chat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
