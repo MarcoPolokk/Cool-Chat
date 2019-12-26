@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableCell" rowHeight="71" id="KGk-i7-Jjw" customClass="MessageCell" customModule="Cool_Chat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6Tg-oo-zFm">
+                        <rect key="frame" x="10" y="10" width="300" height="51"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSn-0N-IPk">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gk1-7f-Xka">
+                                        <rect key="frame" x="10" y="10" width="220" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Gk1-7f-Xka" firstAttribute="top" secondItem="xSn-0N-IPk" secondAttribute="top" constant="10" id="Gon-un-g0y"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gk1-7f-Xka" secondAttribute="bottom" constant="10" id="M8M-Xm-8UB"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gk1-7f-Xka" secondAttribute="trailing" constant="10" id="Tsc-Vu-4lf"/>
+                                    <constraint firstItem="Gk1-7f-Xka" firstAttribute="leading" secondItem="xSn-0N-IPk" secondAttribute="leading" constant="10" id="ccA-Se-e97"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MeAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="Mq6-gM-4SJ">
+                                <rect key="frame" x="260" y="0.0" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="MA5-Ai-8qp"/>
+                                    <constraint firstAttribute="height" constant="40" id="pC8-0h-9xm"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" name="BGColor"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="6Tg-oo-zFm" secondAttribute="trailing" constant="10" id="6qy-wR-kog"/>
+                    <constraint firstItem="6Tg-oo-zFm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="HZu-8y-dQg"/>
+                    <constraint firstItem="6Tg-oo-zFm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="TAY-uJ-fT2"/>
+                    <constraint firstAttribute="bottom" secondItem="6Tg-oo-zFm" secondAttribute="bottom" constant="10" id="o2S-ek-3O3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="label" destination="Gk1-7f-Xka" id="hU4-Vo-WXV"/>
+                <outlet property="messageBubble" destination="xSn-0N-IPk" id="M67-rv-AOA"/>
+                <outlet property="rightImageView" destination="Mq6-gM-4SJ" id="LNs-80-xda"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="115.51339285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="MeAvatar" width="166.5" height="166.5"/>
+        <namedColor name="BGColor">
+            <color red="0.9179999828338623" green="0.77999997138977051" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
