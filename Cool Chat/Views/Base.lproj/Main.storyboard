@@ -396,10 +396,10 @@
     <resources>
         <image name="textfield" width="298" height="93"/>
         <namedColor name="BGColor">
-            <color red="0.91900002956390381" green="0.78100001811981201" blue="0.58899998664855957" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.9179999828338623" green="0.77999997138977051" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="BTColor">
-            <color red="0.6035065651" green="0.40230095389999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.60399997234344482" green="0.40200001001358032" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Color">
             <color red="0.91900002956390381" green="0.78100001811981201" blue="0.58899998664855957" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
