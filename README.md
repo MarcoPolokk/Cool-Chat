@@ -1,6 +1,6 @@
 # ☕️ Cool-Chat<br/>
 A messenger type app<br/>
-I have build a project that uses many technologies that i have learned. <br/>
+I built a project that uses many technologies that i have learned. <br/>
 
 More specifically:<br/>
 -MVC<br/>
