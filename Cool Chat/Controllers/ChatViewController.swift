@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+//MARK: - UIViewController
+
 class ChatViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -21,6 +23,7 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        messageTextfield.delegate = self
         title = K.appName
         navigationItem.hidesBackButton = true
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
@@ -28,6 +31,29 @@ class ChatViewController: UIViewController {
         loadMessages()
     }
     
+    //Sends message data to FireStore.
+    func sendMessage() {
+        if let messageBody = messageTextfield.text, let messageSender = Auth.auth().currentUser?.email {
+            db.collection(K.FStore.collectionName).addDocument(data: [
+                K.FStore.senderField: messageSender,
+                K.FStore.bodyField: messageBody,
+                K.FStore.dateField: Date().timeIntervalSince1970])
+            { (error) in
+                if let e = error {
+                    print ("There was an issue saving data to firestore, \(e)")
+                } else {
+                    print ("Successfully saved data.")
+                    
+                    //Textfield clear
+                    DispatchQueue.main.async {
+                        self.messageTextfield.text = ""
+                    }
+                }
+            }
+        }
+    }
+    
+    //Load messages from FireStore.
     func loadMessages() {
         db.collection(K.FStore.collectionName).order(by: K.FStore.dateField).addSnapshotListener { (querySnapshot, error) in
             self.messages = []
@@ -41,6 +67,7 @@ class ChatViewController: UIViewController {
                             let newMessage = Message(sender: messageSender, body: messageBody)
                             self.messages.append(newMessage)
                             
+                            //Auto downscroll
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
                                 let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
@@ -54,25 +81,10 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
-        if let messageBody = messageTextfield.text, let messageSender = Auth.auth().currentUser?.email {
-            db.collection(K.FStore.collectionName).addDocument(data: [
-                K.FStore.senderField: messageSender,
-                K.FStore.bodyField: messageBody,
-                K.FStore.dateField: Date().timeIntervalSince1970])
-            { (error) in
-                if let e = error {
-                    print ("There was an issue saving data to firestore, \(e)")
-                } else {
-                    print ("Successfully saved data.")
-                    
-                    DispatchQueue.main.async {
-                        self.messageTextfield.text = ""
-                    }
-                }
-            }
-        }
+        sendMessage()
     }
     
+    //Return to RootView and sign out from Cool Chat.
     @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
         do {
             try Auth.auth().signOut()
@@ -80,10 +92,10 @@ class ChatViewController: UIViewController {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-        
     }
-    
 }
+
+//MARK: - UITableViewDataSource
 
 extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,9 +105,9 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messages[indexPath.row]
         
+        //Usage of custom message cell.
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell
         cell.label.text = message.body
-        
         
         //This is a message from the current user.
         if message.sender == Auth.auth().currentUser?.email {
@@ -104,7 +116,7 @@ extension ChatViewController: UITableViewDataSource {
             cell.messageBubble.backgroundColor = UIColor(named: K.Colors.meColor)
             cell.label.textColor = UIColor(named: K.Colors.txtColor)
             
-            //This is a message from another sender.
+            //This is a message from the sender.
         } else {
             cell.leftImageView.isHidden = false
             cell.rightImageView.isHidden = true
@@ -112,5 +124,19 @@ extension ChatViewController: UITableViewDataSource {
             cell.label.textColor = UIColor(named: K.Colors.txtColor)
         }
         return cell
+    }
+}
+
+//MARK: - UITextFieldDelegate
+
+extension ChatViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        sendMessage()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        messageTextfield.endEditing(true)
+        return true
     }
 }

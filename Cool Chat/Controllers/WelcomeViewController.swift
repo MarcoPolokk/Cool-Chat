@@ -25,6 +25,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Cool Chat label animated.
         titleLabel.text = K.appName
     }
 }
